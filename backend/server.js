@@ -1,6 +1,8 @@
 require('dotenv').config()
 
 const express = require('express')
+const mealRoutes = require('./routes/meals')
+
 
 //express app
 const app = express()
@@ -9,13 +11,10 @@ const app = express()
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
-
 })
 
 //routes
-app.get('/', (req, res) => {
-    res.json({msg: 'Welcome to App'})
-})
+app.use('/api/meals',mealRoutes)
 
 //listen for requests
 app.listen(process.env.PORT, () => {
