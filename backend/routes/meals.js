@@ -1,38 +1,25 @@
 const express = require('express')
-const Meals = require('../models/mealsModel')
+const {
+    createMeal,
+    getMeal,
+    getMeals,
+    deleteMeal,
+    updateMeal
+} = require('../controllers/mealController')
 
 const router = express.Router()
 
 //get all meals
-router.get('/', (req, res) => {
-    res.json({msg: 'GET ALL WORKOUTS'})
-})
+router.get('/', getMeals)
 
 //get single meals
-router.get('/:id', (req, res) => {
-    res.json({msg: 'GET SINGLE WORKOUT'})
-})
-
+router.get('/:id', getMeal)
 //post new meals
-router.post('/', async (req, res) => {
-    const {title, weight, calories} = req.body
-
-    try{
-        const meal = await Meals.create({title, weight, calories})
-        res.status(200).json(meal)
-    } catch(error) {
-        res.status(400).json({error: error.message})
-    }
-})
+router.post('/', createMeal)
 
 //delete meal
-router.delete('/:id', (req, res) => {
-    res.json({msg: 'DELETE NEW MEAL'})
-})
-
+router.delete('/:id', deleteMeal)
 //update a  meal
-router.patch('/:id', (req, res) => {
-    res.json({msg: 'UPDATE A MEAL'})
-})
+router.patch('/:id', updateMeal)
 
 module.exports = router
