@@ -1,4 +1,5 @@
 const express = require('express')
+const Meals = require('../models/mealsModel')
 
 const router = express.Router()
 
@@ -13,8 +14,15 @@ router.get('/:id', (req, res) => {
 })
 
 //post new meals
-router.post('/', (req, res) => {
-    res.json({msg: 'POST NEW MEAL'})
+router.post('/', async (req, res) => {
+    const {title, weight, calories} = req.body
+
+    try{
+        const meal = await Meals.create({title, weight, calories})
+        res.status(200).json(meal)
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 //delete meal
