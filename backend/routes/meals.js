@@ -1,25 +1,27 @@
-const express = require('express')
+const express = require('express');
 const {
     createMeal,
     getMeal,
     getMeals,
     deleteMeal,
     updateMeal
-} = require('../controllers/mealController')
+} = require('../controllers/mealController');
 
-const router = express.Router()
+const router = express.Router();
 
-//get all meals
-router.get('/', getMeals)
+// Get all meals
+router.get('/', getMeals);
 
-//get single meals
-router.get('/:id', getMeal)
-//post new meals
-router.post('/', createMeal)
+// Get single meal
+router.get('/:id', getMeal);
 
-//delete meal
-router.delete('/:id', deleteMeal)
-//update a  meal
-router.patch('/:id', updateMeal)
+// Post new meal
+router.post('/', createMeal);
 
-module.exports = router
+// Delete meal
+router.delete('/:id', deleteMeal);
+
+// Update a meal
+router.patch('/:id', updateMeal);
+
+module.exports = router;

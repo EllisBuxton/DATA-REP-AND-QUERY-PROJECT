@@ -1,3 +1,4 @@
+//Homepage component
 const Home = () => {
     return (
         <div className="home">

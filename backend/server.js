@@ -1,32 +1,36 @@
-require('dotenv').config()
+// Load environment variables from .env file
+require('dotenv').config();
 
-const express = require('express')
-const mongoose = require('mongoose')
-const mealRoutes = require('./routes/meals')
+// Import necessary modules
+const express = require('express');
+const mongoose = require('mongoose');
+const mealRoutes = require('./routes/meals');
 
-// express app
-const app = express()
+// Create an Express app
+const app = express();
 
-// middleware
-app.use(express.json())
+// Middleware to parse JSON requests
+app.use(express.json());
 
+// Custom middleware for logging request path and method
 app.use((req, res, next) => {
-  console.log(req.path, req.method)
-  next()
-})
+  console.log(req.path, req.method);
+  next();
+});
 
-// routes
-app.use('/api/meals', mealRoutes)
+// Define routes
+app.use('/api/meals', mealRoutes);
 
-// connect to db
+// Connect to the MongoDB database
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('connected to database')
-    // listen to port
+    console.log('Connected to the database');
+    
+    // Start the Express app listening on the specified port
     app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
-    })
+      console.log('Listening for requests on port', process.env.PORT);
+    });
   })
   .catch((err) => {
-    console.log(err)
-  }) 
+    console.error('Error connecting to the database:', err);
+  });
