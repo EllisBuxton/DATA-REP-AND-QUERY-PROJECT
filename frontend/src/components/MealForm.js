@@ -26,7 +26,7 @@ const MealForm = () => {
             setTitle('')
             setWeight('')
             setCalories('')
-            setError('null')
+            setError(null)
             console.log('New Meal Added')
         }
     }
