@@ -1,7 +1,9 @@
-import { set } from 'mongoose'
 import { useState } from 'react'
+import { useMealsContext } from '../hooks/useMealsContext'
 
 const MealForm = () => {
+    const { dispatch } = useMealsContext()
+
     const [title, setTitle] = useState('')
     const [weight, setWeight] = useState('')
     const [calories, setCalories] = useState('')
@@ -28,6 +30,7 @@ const MealForm = () => {
             setCalories('')
             setError(null)
             console.log('New Meal Added')
+            dispatch({ type: 'CREATE_MEAL', payload: json })
         }
     }
 

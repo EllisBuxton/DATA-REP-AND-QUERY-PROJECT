@@ -11,4 +11,4 @@ root.render(
       <App />
     </MealsContextProvider>
   </React.StrictMode>
-);
+)
