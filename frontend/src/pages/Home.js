@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+//components
+import MealDetails from "../components/MealDetails"
 
 //Homepage component
 const Home = () => {
@@ -22,7 +24,7 @@ const Home = () => {
         <div className="home">
             <div className="meals">
                 {meals && meals.map((meal) =>(
-                    <p key={meal._id}>{meal.title}</p>
+                    <MealDetails key={meal._id} meal={meal} />
                 ))}
                 </div> 
             </div>
