@@ -36,6 +36,21 @@ const getMeal = async (req, res) => {
 const createMeal = async (req, res) => {
     const { title, weight, calories } = req.body;
 
+    let emptyFields = [];
+
+    if (!title) {
+        emptyFields.push('title');
+    }
+    if (!weight) {
+        emptyFields.push('weight');
+    }
+    if (!calories) {
+        emptyFields.push('calories');
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({error: 'Please fill in all fields', emptyFields});
+    }
+
     try {
         const meal = await Meals.create({ title, weight, calories });
         res.status(201).json(meal);
@@ -59,7 +74,7 @@ const deleteMeal = async (req, res) => {
             return res.status(404).json({ error: `No meal with id: ${id}` });
         }
 
-        res.status(200).json({ meal: 'Meal deleted successfully' });
+        res.status(200).json(meal);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

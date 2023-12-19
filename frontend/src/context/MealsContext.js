@@ -12,6 +12,10 @@ export const mealsReducer = (state, action) => {
       return { 
         meals: [action.payload, ...state.meals] 
       }
+      case 'DELETE_MEAL':
+        return {
+          meals: state.meals.filter((w) => w._id !== action.payload._id)
+        }
     default:
       return state
   }
