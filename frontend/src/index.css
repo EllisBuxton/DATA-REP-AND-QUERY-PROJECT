@@ -11,7 +11,7 @@ body {
   background: #e0e0e0;
   background-image: url('Wallpaper.jpg');
   margin: 0;
-  font-family: "quattrocento", sans-serif;
+  font-family: "quattrocento", sans-serif;  
 }
 
 header .container {
@@ -102,19 +102,22 @@ header a:hover {
 
 /* new workout form */
 form {
-  background: rgba(255, 255, 255, 0.7); /* Use a semi-transparent white background */
+  background: rgba(255, 255, 255, 0.7);
   margin: 20px auto;
   padding: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  transition: background 0.3s ease-in-out; /* Add transition for smooth effect */
+  transition: background 0.3s ease-in-out;
+  color: #555; /* Add this line to set text color */
 }
 
 form:hover {
-  background: rgba(255, 255, 255, 0.8); /* Increase opacity to 0.9 on hover */
+  background: rgba(255, 255, 255, 0.8);
 }
-label,input {
+
+label, input {
   display: block;
+  color: #555; /* Add this line to set text color */
 }
 
 input {
@@ -127,6 +130,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+  color: #555; /* Add this line to set text color */
 }
 
 form button {
@@ -186,4 +190,29 @@ input.error {
   border-radius: 4px;
   cursor: pointer;
   margin-right: 10px;
+}
+/* CalcBar.css */
+
+.calc-bar {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  transition: background 0.3s ease-in-out;
+}
+
+.calc-bar:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.calc-bar h2 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  color: var(--primary);
+}
+
+.calc-bar p {
+  margin: 0;
+  font-size: 1em;
+  color: #555;
 }

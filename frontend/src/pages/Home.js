@@ -4,6 +4,7 @@ import { useMealsContext } from "../hooks/useMealsContext"
 // components
 import MealDetails from "../components/MealDetails"
 import MealForm from "../components/MealForm"
+import CalcBar from "../components/CalcBar"
 
 const Home = () => {
   const { meals, dispatch } = useMealsContext()
@@ -29,6 +30,7 @@ const Home = () => {
         ))}
       </div>
       <MealForm />
+      <CalcBar />
     </div>
   )
 }
