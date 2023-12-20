@@ -6,14 +6,14 @@
   --primary: #1aac83;
   --error: #e7195a;
 }
+
 body {
   background: #e0e0e0;
+  background-image: url('Wallpaper.jpg');
   margin: 0;
   font-family: "quattrocento", sans-serif;
 }
-header {
-  background: #e0e0e0;
-}
+
 header .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -22,12 +22,24 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
+
 header a {
   color: #333;
   text-decoration: none;
   font-size: 2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.85) 50%, #1aac83 50%, #e7195a);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.5s ease-out;
 }
-.pages{
+
+header a:hover {
+  background-position: -100%
+}
+
+.pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
@@ -39,25 +51,34 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
 .meal-details {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7); /* 0.7 is the initial opacity value */
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease-in-out; /* Add transition for smooth effect */
 }
+
+.meal-details:hover {
+  background: rgba(255, 255, 255, 0.8); /* Increase opacity to 0.9 on hover */
+}
+
 .meal-details h4 {
   margin: 0 0 10px 0;
   font-size: 2em;
   color: var(--primary);
 }
+
 .meal-details p {
   margin: 0;
   font-size: 1em;
   color: #555;
 }
-.material-symbols-outlined.delete-icon{
+
+.material-symbols-outlined.delete-icon {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -67,7 +88,8 @@ header a {
   border-radius: 50%;
   color: #333;
 }
-.material-symbols-outlined.edit-icon{
+
+.material-symbols-outlined.edit-icon {
   position: absolute;
   top: 20px;
   right: 60px;
@@ -77,11 +99,27 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
 /* new workout form */
-label, input {
+form {
+  background: rgba(255, 255, 255, 0.7); /* Use a semi-transparent white background */
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  transition: background 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+form:hover {
+  background: rgba(255, 255, 255, 0.8); /* Increase opacity to 0.9 on hover */
+}
+label,input {
   display: block;
 }
+
 input {
+  font-family: quattrocento, sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -90,15 +128,17 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
   background: var(--primary);
   border: 0;
   color: #fff;
   padding: 10px;
-  font-family: "Poppins";
+  font-family: "quattrocento", sans-serif;
   border-radius: 4px;
   cursor: pointer;
 }
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -107,16 +147,21 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+
 input.error {
   border: 1px solid var(--error);
 }
+
+/* Edit popup */
 /* Edit popup */
 .edit-popup {
-  background: #fff;
+  background: rgba(255, 255, 255, 0);
   margin: 20px auto;
   padding: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
 }
+
 .edit-popup label {
   margin-bottom: 5px;
   font-size: 1.2em;
