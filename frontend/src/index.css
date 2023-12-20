@@ -57,10 +57,20 @@ header a {
   font-size: 1em;
   color: #555;
 }
-.meal-details span {
+.material-symbols-outlined.delete-icon{
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+.material-symbols-outlined.edit-icon{
+  position: absolute;
+  top: 20px;
+  right: 60px;
   cursor: pointer;
   background: #f1f1f1;
   padding: 6px;
