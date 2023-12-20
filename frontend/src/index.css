@@ -110,3 +110,35 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+/* Edit popup */
+.edit-popup {
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+.edit-popup label {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.edit-popup input {
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit-popup button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: "Quattrocento", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}

@@ -95,7 +95,7 @@ const updateMeal = async (req, res) => {
             return res.status(404).json({ error: `No meal with id: ${id}` });
         }
 
-        res.status(200).json({ meal: 'Meal updated successfully' });
+        res.status(200).json(meal);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

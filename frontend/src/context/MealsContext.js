@@ -16,6 +16,10 @@ export const mealsReducer = (state, action) => {
         return {
           meals: state.meals.filter((w) => w._id !== action.payload._id)
         }
+        case 'PATCH_MEAL':
+    return {
+       meals: state.meals.map((w) => (w._id === action.payload._id ? action.payload : w)),
+    };
     default:
       return state
   }

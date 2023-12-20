@@ -41,9 +41,17 @@ const MealDetails = ({ meal }) => {
 
         if (response.ok) {
             const json = await response.json();
-            dispatch({ type: 'PATCH_MEAL', payload: json });
+            const updatedMeal = {
+                ...meal,
+                title: json.title,
+                weight: json.weight,
+                calories: json.calories,
+            };
+            dispatch({ type: 'PATCH_MEAL', payload: updatedMeal });
             // Hide edit popup after successful save
             setEditPopupVisible(false);
+
+            
         }
     };
 
