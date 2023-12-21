@@ -100,7 +100,7 @@ header a:hover {
   color: #333;
 }
 
-/* new workout form */
+/* new meal form */
 form {
   background: rgba(255, 255, 255, 0.7);
   margin: 20px auto;
@@ -108,7 +108,7 @@ form {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   transition: background 0.3s ease-in-out;
-  color: #555; /* Add this line to set text color */
+  color: #555;
 }
 
 form:hover {
@@ -117,7 +117,7 @@ form:hover {
 
 label, input {
   display: block;
-  color: #555; /* Add this line to set text color */
+  color: #555;
 }
 
 input {
@@ -130,7 +130,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
-  color: #555; /* Add this line to set text color */
+  color: #555;
 }
 
 form button {
@@ -156,8 +156,7 @@ input.error {
   border: 1px solid var(--error);
 }
 
-/* Edit popup */
-/* Edit popup */
+/* edit popup */
 .edit-popup {
   background: rgba(255, 255, 255, 0);
   margin: 20px auto;
@@ -191,8 +190,7 @@ input.error {
   cursor: pointer;
   margin-right: 10px;
 }
-/* CalcBar.css */
-
+/* calcBar*/
 .calc-bar {
   background: rgba(255, 255, 255, 0.7);
   padding: 20px;

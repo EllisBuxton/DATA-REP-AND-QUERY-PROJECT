@@ -1,32 +1,40 @@
-import { useMealsContext } from '../hooks/useMealsContext'
-import { useState } from 'react'; // Import useState
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
+import { useMealsContext } from '../hooks/useMealsContext';//import hook to acces MealsContext
+import { useState } from 'react';//import useState hook from react
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';//imports date-fns to make date be the distance to now
+
+//function for displaying the details of the meals
 const MealDetails = ({ meal }) => {
-    const { dispatch } = useMealsContext()
+    //uses useMealContext to get the dispatch function
+    const { dispatch } = useMealsContext();
 
+    // state variables for showing the edit popup annd edited details
     const [isEditPopupVisible, setEditPopupVisible] = useState(false);
     const [editedTitle, setEditedTitle] = useState(meal.title);
     const [editedWeight, setEditedWeight] = useState(meal.weight);
     const [editedCalories, setEditedCalories] = useState(meal.calories);
 
+    //function for clicking the delete button
     const handleClick = async () => {
         const response = await fetch('/api/meals/' + meal._id, {
             method: 'DELETE'
-        } )
-        const json = await response.json()
+        });
+        const json = await response.json();
 
         if (response.ok) {
-            dispatch({ type: 'DELETE_MEAL', payload: json })
+            dispatch({ type: 'DELETE_MEAL', payload: json });
         }
-    }
+    };
+
+    //function for clicking the edit button
     const handleEdit = () => {
-        // Show edit popup
+        //shows edit popup
         setEditPopupVisible(true);
     };
 
+    //function that handles save button being clicked
     const handleSave = async () => {
-        // Send PATCH request with updated values
+        //sends the patch request with new details
         const response = await fetch(`/api/meals/${meal._id}`, {
             method: 'PATCH',
             headers: {
@@ -48,24 +56,23 @@ const MealDetails = ({ meal }) => {
                 calories: json.calories,
             };
             dispatch({ type: 'PATCH_MEAL', payload: updatedMeal });
-            // Hide edit popup after successful save
+            //hides the popup after saving
             setEditPopupVisible(false);
-
-            
         }
     };
 
+    //function that closes edit popup without saving
     const closeEditPopup = () => {
-        // Close edit popup without saving
         setEditPopupVisible(false);
     };
 
+    //renders the meal details and the edit and delete button
     return (
         <div className="meal-details">
             <h4>{meal.title}</h4>
             <p><strong>Weight (grams): </strong>{meal.weight}</p>
             <p><strong>Calories: </strong>{meal.calories}</p>
-            <p>{formatDistanceToNow(new Date(meal.createdAt), {addSuffix: true})}</p>
+            <p>{formatDistanceToNow(new Date(meal.createdAt), { addSuffix: true })}</p>
             <span className="material-symbols-outlined delete-icon" onClick={handleClick}>
                 delete
             </span>
@@ -102,4 +109,5 @@ const MealDetails = ({ meal }) => {
     );
 };
 
+//exports MealDetails
 export default MealDetails;

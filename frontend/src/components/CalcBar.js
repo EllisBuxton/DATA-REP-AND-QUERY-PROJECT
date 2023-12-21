@@ -1,16 +1,19 @@
-import React from 'react';
+//imports hook to access Mealscontext
 import { useMealsContext } from '../hooks/useMealsContext';
 
+//function for calculation in the summary bar
 const CalcBar = () => {
+  //uses useMealCotext to get meal data
   const { meals } = useMealsContext();
 
-  // Use nullish coalescing operator to handle null or undefined
+  //nullish coalescing to handle null or undefined
   const mealsArray = meals ?? [];
 
-  // Calculate total weight and total calories
+  //calculates total weight and calories using array reduce 
   const totalWeight = mealsArray.reduce((acc, meal) => acc + meal.weight, 0);
   const totalCalories = mealsArray.reduce((acc, meal) => acc + meal.calories, 0);
 
+  //renders the calc summary bar
   return (
     <div className="calc-bar">
       <h2>Calculation Summary</h2>
@@ -20,4 +23,5 @@ const CalcBar = () => {
   );
 };
 
+//export calcBar component
 export default CalcBar;

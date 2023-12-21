@@ -1,4 +1,6 @@
-const express = require('express');
+const express = require('express');//importing express
+
+//importing controller methods from mealController.js
 const {
     createMeal,
     getMeal,
@@ -7,21 +9,23 @@ const {
     updateMeal
 } = require('../controllers/mealController');
 
+//express instance creation
 const router = express.Router();
 
-// Get all meals
+//route for getting all meals
 router.get('/', getMeals);
 
-// Get single meal
+//route for getting meal by id
 router.get('/:id', getMeal);
 
-// Post new meal
+//route for creating new meal
 router.post('/', createMeal);
 
-// Delete meal
+//route to delete meal by id
 router.delete('/:id', deleteMeal);
 
-// Update a meal
+//route to update meal by id
 router.patch('/:id', updateMeal);
 
+// exporting router
 module.exports = router;

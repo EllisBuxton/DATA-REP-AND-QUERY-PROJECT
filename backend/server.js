@@ -1,32 +1,32 @@
-// Load environment variables from .env file
+//loads variables from .env
 require('dotenv').config();
 
-// Import necessary modules
+//imports needed modules
 const express = require('express');
 const mongoose = require('mongoose');
 const mealRoutes = require('./routes/meals');
 
-// Create an Express app
+//creates the express app
 const app = express();
 
-// Middleware to parse JSON requests
+//middleware that parses json req's
 app.use(express.json());
 
-// Custom middleware for logging request path and method
+//middleware that logs request path and method
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
 
-// Define routes
+//defines routes
 app.use('/api/meals', mealRoutes);
 
-// Connect to the MongoDB database
+//connection to the mongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to the database');
     
-    // Start the Express app listening on the specified port
+    //starts the express app and listens to the port defined in .env
     app.listen(process.env.PORT, () => {
       console.log('Listening for requests on port', process.env.PORT);
     });

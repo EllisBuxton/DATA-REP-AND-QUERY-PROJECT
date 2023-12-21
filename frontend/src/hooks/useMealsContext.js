@@ -1,12 +1,16 @@
-import { MealsContext } from "../context/MealsContext"
-import { useContext } from "react"
+import { MealsContext } from "../context/MealsContext";// import MealContext 
+import { useContext } from "react";//import useContext from react
 
+//hook for accesing MealsContext
 export const useMealsContext = () => {
-  const context = useContext(MealsContext)
+  //useContext used to get current context value
+  const context = useContext(MealsContext);
 
-  if(!context) {
-    throw Error('useMealsContext must be used inside an MealsContextProvider')
+  //checks if hook is used in MealsContextProvider
+  if (!context) {
+    throw Error('useMealsContext must be used inside a MealsContextProvider');
   }
 
-  return context
-}
+  //returns context value
+  return context;
+};
